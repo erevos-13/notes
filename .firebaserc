@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mynotes-31eae": {
+      "hosting": {
+        "noteNew": [
+          "mynotes-31eae"
+        ]
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ColletionsService} from '../services/colletions.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  openImport = false;
 
-  constructor() { }
+  constructor(
+    private colletionsSrv: ColletionsService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  addNote() {
+    this.openImport = true;
+  }
+  onSubmit(event) {
+    this.colletionsSrv.addNotes(event);
   }
 
 }

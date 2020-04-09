@@ -12,7 +12,7 @@ export class AppComponent {
     private router: Router
   ) {
     setTimeout(() => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/login']);
     }, 2000);
   }
 }
