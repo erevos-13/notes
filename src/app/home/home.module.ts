@@ -7,19 +7,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
-import {ImportNotesModule} from '../component/import-notes/import-notes.module';
 
 
 @NgModule({
   declarations: [HomeComponent],
-    imports: [
-        CommonModule,
-        HomeRoutingModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatGridListModule,
-        MatCardModule,
-        ImportNotesModule
-    ]
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatGridListModule,
+    MatCardModule
+  ]
 })
 export class HomeModule { }
