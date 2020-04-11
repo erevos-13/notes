@@ -11,8 +11,6 @@ export class AppComponent {
   constructor(
     private router: Router
   ) {
-    setTimeout(() => {
-      this.router.navigate(['/login']);
-    }, 2000);
+    this.router.navigate(['/home'])
   }
 }

@@ -46,6 +46,28 @@ export class CollectionsService {
       ).subscribe(r => resolve(r));
     });
   }
+  updateNote(title: string , note: string, key: string) {
+    return new Promise(async (resolve, reject) => {
+      const userIdFirebase = auth().currentUser;
+      try {
+        const updateNote = await this.db.list(`notes/${userIdFirebase.uid}`).update( key, {title: title, note: note});
+        resolve(updateNote);
+      }catch (e) {
+        reject(e);
+      }
+    });
+  }
+   removeNote(key: string) {
+     return new Promise(async (resolve, reject) => {
+       const userIdFirebase = auth().currentUser;
+       try {
+         const removeNote = await this.db.list(`notes/${userIdFirebase.uid}`).remove(key);
+         resolve(removeNote);
+       }catch (e) {
+         reject(e);
+       }
+     });
+   }
 
    getNotesOfUser(): Observable<any> {
     try {
