@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authSrv: AuthService,
-    private router: Router
+    private router: Router,
+    private auth: AngularFireAuth
   ) { }
 
   ngOnInit(): void {
@@ -35,5 +37,18 @@ export class LoginComponent implements OnInit {
       this.loading = false;
       console.log(e);
     }
+  }
+
+  onRegister() {
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.auth.signInWithEmailAndPassword(this.loginForm.get('email').value, this.loginForm.get('password').value)
+      .then(() => {
+
+      })
+      .catch(() => {
+
+      });
   }
 }

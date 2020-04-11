@@ -12,6 +12,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {InfoPopupModule} from '../../components/info-popup/info-popup.module';
+import {MatMenuModule} from '@angular/material/menu';
+import {NavBarModule} from '../../components/nav-bar/nav-bar.module';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import {InfoPopupModule} from '../../components/info-popup/info-popup.module';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    InfoPopupModule
+    InfoPopupModule,
+    MatMenuModule,
+    NavBarModule
   ]
 })
 export class HomeModule { }

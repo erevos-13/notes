@@ -1,4 +1,4 @@
-
+<app-nav-bar></app-nav-bar>
 <div class="container">
   <div class="row p-2 justify-content-center">
     <div class="col-5 p-1 w-50">
@@ -12,13 +12,17 @@
           <label for="exampleInputPassword1">Password</label>
           <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button mat-raised-button color="primary"  type="submit" *ngIf="!loading">Submit</button>
-        <div class="custom-spinner">
-          <mat-spinner *ngIf="loading"></mat-spinner>
+        <div class="row">
+          <div class="col-6 text-center">
+            <button mat-raised-button color="primary"  type="submit" *ngIf="!loading">Submit</button>
+            <div class="text-center">
+              <mat-spinner class="m-0" [diameter]="30" color="accent" *ngIf="loading"></mat-spinner>
+            </div>
+
+          </div>
+          <div class="col-6 text-center">
+            <button mat-raised-button color="accent"  type="submit" (click)="onRegister()">Register</button>
+          </div>
         </div>
 
       </form>

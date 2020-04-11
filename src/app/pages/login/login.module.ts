@@ -9,6 +9,7 @@ import {AuthService} from '../../services/auth.service';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {MatButtonModule} from '@angular/material/button';
+import {NavBarModule} from '../../components/nav-bar/nav-bar.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    NavBarModule
   ],
   providers: [
     AuthService,

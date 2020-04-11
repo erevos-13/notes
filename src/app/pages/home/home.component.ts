@@ -3,6 +3,8 @@ import {CollectionsService, INotes} from '../../services/collections.service';
 import {Observable} from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
 import {InfoPopupComponent} from '../../components/info-popup/info-popup.component';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,9 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private collectionsSrv: CollectionsService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public auth: AngularFireAuth,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,6 +28,9 @@ export class HomeComponent implements OnInit {
   }
 
   addNotes() {
+    if (!this.note || !this.title) {
+      return;
+    }
     const input: INotes = {
       title: this.title,
       note: this.note
@@ -54,4 +61,6 @@ export class HomeComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
+
 }
