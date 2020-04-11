@@ -1,0 +1,43 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Notes</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example note icon">note</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="container p-2 mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Title</label>
+            <input  class="form-control" id="exampleFormControlInput1" [(ngModel)]="title" placeholder="Title" type="text"  [ngModelOptions]="{standalone: true}">
+          </div>
+
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Note</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="note" placeholder="Ex. It makes me feel..." [ngModelOptions]="{standalone: true}"></textarea>
+          </div>
+        </div>
+        <div class="col-12">
+          <button mat-raised-button mat-button color="primary" (click)="addNotes()">Add </button>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-12 col-md-6 mt-sm-3 text-center">
+      <ul class="list-group">
+        <li class="list-group-item list-header">My Notes:</li>
+        <li class="list-group-item" *ngFor="let note_ of userNotes | async" (click)="selectNote(note_)">{{(note_.title)? note_.title : '-'}}</li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+
