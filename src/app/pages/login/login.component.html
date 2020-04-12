@@ -1,5 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
+
   <div class="row p-2 justify-content-center">
     <div class="col-5 p-1 w-50">
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
@@ -13,15 +14,22 @@
           <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
         <div class="row">
+
           <div class="col-6 text-center">
+
             <button mat-raised-button color="primary"  type="submit" *ngIf="!loading">Submit</button>
-            <div class="text-center">
-              <mat-spinner class="m-0" [diameter]="30" color="accent" *ngIf="loading"></mat-spinner>
+            <div class="button-custom">
+              <ngx-loading [show]="loading" ></ngx-loading>
             </div>
 
           </div>
+
           <div class="col-6 text-center">
-            <button mat-raised-button color="accent"  type="submit" (click)="onRegister()">Register</button>
+            <button mat-raised-button color="accent" type="button" *ngIf="!loadingRegister" (click)="onRegister()">Register</button>
+            <div class="button-custom">
+              <ngx-loading [show]="loadingRegister" ></ngx-loading>
+            </div>
+
           </div>
         </div>
 

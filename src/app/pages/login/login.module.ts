@@ -10,6 +10,8 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {MatButtonModule} from '@angular/material/button';
 import {NavBarModule} from '../../components/nav-bar/nav-bar.module';
+import {InfoMessageModule} from '../../components/info-message/info-message.module';
+import {NgxLoadingModule} from 'ngx-loading';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import {NavBarModule} from '../../components/nav-bar/nav-bar.module';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    NavBarModule
+    NavBarModule,
+    InfoMessageModule,
+    NgxLoadingModule
   ],
   providers: [
     AuthService,
