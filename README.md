@@ -1,6 +1,7 @@
 # Notes6
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+The project is in this link: http://notes.voutsaridiso.com/#/
 
 ## Development server
 
