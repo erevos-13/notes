@@ -5,6 +5,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {InfoPopupComponent} from '../../components/info-popup/info-popup.component';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
+import {MessagingService} from '../../services/messaging.service';
 
 @Component({
   selector: 'app-home',
@@ -15,16 +16,22 @@ export class HomeComponent implements OnInit {
   title: string;
   note: string;
   userNotes: Observable<any[]>;
-
+  message;
   constructor(
     private collectionsSrv: CollectionsService,
     public dialog: MatDialog,
     public auth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private messagingService: MessagingService
   ) { }
 
   ngOnInit(): void {
-   this.userNotes = this.collectionsSrv.getNotesOfUser();
+    const userId = 'user001';
+    this.messagingService.requestPermission();
+    this.messagingService.receiveMessage();
+    this.message = this.messagingService.currentMessage;
+    this.userNotes = this.collectionsSrv.getNotesOfUser();
+    console.log('home', this.message);
   }
 
   addNotes() {

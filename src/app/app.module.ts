@@ -15,6 +15,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
+import {AngularFireMessagingModule} from '@angular/fire/messaging';
+import {MessagingService} from './services/messaging.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireMessagingModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     MatToolbarModule,
@@ -40,6 +43,7 @@ import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
     })
   ],
   providers: [
+    MessagingService
   ],
   bootstrap: [AppComponent]
 })
