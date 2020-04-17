@@ -1,36 +1,36 @@
 <div mat-dialog-content >
-  <div class="container">
-    <div class="row">
-      <div class="col-4">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-4 text-center">
         <mat-icon aria-hidden="false" aria-label="Example home icon" style="cursor: pointer" (click)="onClose()">close</mat-icon>
       </div>
-      <div class="col-4">
+      <div class="col-4 text-center">
         <h3>Note</h3>
       </div>
-      <div class="col-4">
+      <div class="col-4 text-center">
         <mat-slide-toggle (change)="onSlider($event)">Edit</mat-slide-toggle>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <form [formGroup]="noteForm" class="example-form">
+    <div class="row justify-content-center w-100 mt-5">
+      <form [formGroup]="noteForm" class="example-form form-input">
         <div class="col-12 text-center">
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="w-100">
             <mat-label>Title:</mat-label>
             <input  matInput formControlName="title" placeholder="Ex. Pizza">
           </mat-form-field>
         </div>
         <div class="col-12 text-center">
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="w-100">
             <mat-label>Note:</mat-label>
             <textarea  matInput formControlName="note" placeholder="Ex. It makes me feel..."></textarea>
           </mat-form-field>
         </div>
-        <div class="col-12 text-left">
-          <div class="row">
-            <div class="col-6">
+        <div class="col-12 text-center">
+          <div class="row justify-content-center">
+            <div class="col-6 text-center">
               <button *ngIf="enableEdit" mat-raised-button color="accent" (click)="editNote()">Submit</button>
             </div>
-            <div class="col-6">
+            <div class="col-6 text-center">
               <button *ngIf="enableEdit" mat-raised-button color="warn" (click)="removeNote()">Remove</button>
             </div>
           </div>

@@ -12,6 +12,7 @@ export interface INotes {
   note: string;
   userId?: string;
   key?: string;
+  createAt: number;
 }
 
 @Injectable({
@@ -28,7 +29,7 @@ export class CollectionsService {
       const userIdFirebase = auth().currentUser;
       const uuid = this.afs.createId();
       try {
-        const addNotes = await this.db.list(`notes/${userIdFirebase.uid}`).push({id: uuid, title: note.title, note: note.note, userId: userIdFirebase.uid});
+        const addNotes = await this.db.list(`notes/${userIdFirebase.uid}`).push({id: uuid, title: note.title, note: note.note, userId: userIdFirebase.uid, createAt: note.createAt});
         resolve(addNotes);
       }catch (e) {
         reject(e);

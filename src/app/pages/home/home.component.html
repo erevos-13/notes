@@ -27,7 +27,7 @@
       <div class="col-12 col-md-6 mt-3 text-center">
         <ul class="list-group">
           <li class="list-group-item list-header">My Notes:</li>
-          <li class="list-group-item" style="cursor: pointer" *ngFor="let note_ of userNotes | async" (click)="selectNote(note_)">{{(note_.title)? note_.title : '-'}}</li>
+          <li class="list-group-item" style="cursor: pointer" *ngFor="let note_ of userNotes | async" (click)="selectNote(note_)">{{(note_.title)? note_.title  +'  -  ' + moment(note_.createAt).fromNow()  : '-'}}</li>
 
         </ul>
       </div>

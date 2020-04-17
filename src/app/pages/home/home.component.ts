@@ -6,6 +6,7 @@ import {InfoPopupComponent} from '../../components/info-popup/info-popup.compone
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
 import {MessagingService} from '../../services/messaging.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ import {MessagingService} from '../../services/messaging.service';
 export class HomeComponent implements OnInit {
   title: string;
   note: string;
-  userNotes: Observable<any[]>;
+  userNotes: Observable<INotes[]>;
+  moment: any = moment;
   message;
   constructor(
     private collectionsSrv: CollectionsService,
@@ -31,6 +33,7 @@ export class HomeComponent implements OnInit {
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage;
     this.userNotes = this.collectionsSrv.getNotesOfUser();
+
     console.log('home', this.message);
   }
 
@@ -40,7 +43,8 @@ export class HomeComponent implements OnInit {
     }
     const input: INotes = {
       title: this.title,
-      note: this.note
+      note: this.note,
+      createAt: moment().valueOf()
     };
     this.collectionsSrv.addNotes(input).then().catch();
   }
@@ -61,7 +65,9 @@ export class HomeComponent implements OnInit {
 
   openDialog(note: INotes): void {
     const dialogRef = this.dialog.open(InfoPopupComponent, {
-      data: {note : note}
+      data: {note : note},
+      width: '70vw',
+      height: '70vh'
     });
 
     dialogRef.afterClosed().subscribe(result => {
