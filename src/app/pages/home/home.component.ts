@@ -5,7 +5,6 @@ import {MatDialog} from '@angular/material/dialog';
 import {InfoPopupComponent} from '../../components/info-popup/info-popup.component';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
-import {MessagingService} from '../../services/messaging.service';
 import * as moment from 'moment';
 
 @Component({
@@ -24,14 +23,9 @@ export class HomeComponent implements OnInit {
     public dialog: MatDialog,
     public auth: AngularFireAuth,
     private router: Router,
-    private messagingService: MessagingService
   ) { }
 
   ngOnInit(): void {
-    const userId = 'user001';
-    this.messagingService.requestPermission();
-    this.messagingService.receiveMessage();
-    this.message = this.messagingService.currentMessage;
     this.userNotes = this.collectionsSrv.getNotesOfUser();
 
     console.log('home', this.message);
